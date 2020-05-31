@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-while getopts :ab:c opt
+while getopts :ab:c opt  # b后面的:表示b有一个参数
 do
     case "$opt" in     # opt存储当前遍历的选项，未知选项会是？
         a) echo "Found the -a option" ;;
@@ -13,7 +13,7 @@ done
 
 # 把用过的参数移调，
 echo "OPTIND = $OPTIND"   # OPTIND = 6
-shift $[ $OPTIND - 1 ]    # 刚好把所有选项移调了
+shift $[ $OPTIND - 1 ]    # 刚好把所有选项移掉了
 
 echo
 for param in "$@"
